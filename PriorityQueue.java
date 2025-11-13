@@ -1,7 +1,7 @@
 
 /******************************************************************
  *
- *   YOUR NAME / SECTION NUMBER
+ *  Jesus Ortga / 002
  *
  *   Note, additional comments provided throughout this source code
  *   is for educational purposes
@@ -76,7 +76,7 @@ import java.util.Comparator;
  */
 
 class PriorityQueue<E, P> {
-
+    
     private static final int DEFAULT_CAPACITY = 10; // initial queue size
   
     final Comparator<P> comparator;
@@ -150,9 +150,10 @@ class PriorityQueue<E, P> {
      */
 
     public Node add(E e, P priority) {
-
-        // YOUR CODE GOES HERE
-        return null;
+        Node newNode = new Node(e, priority, tree.size());
+        tree.add(newNode);
+        pullUp(tree.size() - 1);
+        return newNode; 
     }
 
 
@@ -167,8 +168,12 @@ class PriorityQueue<E, P> {
      */
 
     public boolean contains(E e) {
-
-        // ADD YOUR CODE HERE
+        for (int i = 0; i < tree.size(); i++) {
+            Node node = tree.get(i);
+            if (node.value != null && node.value.equals(e)) { 
+                return true;
+            }
+        }
         return false;
     }
 
